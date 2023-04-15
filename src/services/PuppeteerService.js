@@ -7,13 +7,11 @@ const handlePuppeteer = async () => {
     ignoreHTTPSErrors: true,
   });
   const page = await browser.newPage();
-  await page.goto("https://www.facebook.com");
+  await page.goto("https://www.google.com");
+  const pageTitle = await page.title();
 
-  await page.waitForNavigation();
-
-  setTimeout(async () => {
-    await browser.close();
-  }, 3000);
+  await browser.close();
+  return pageTitle;
 };
 
 module.exports = handlePuppeteer;

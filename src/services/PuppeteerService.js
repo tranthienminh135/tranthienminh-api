@@ -1,9 +1,10 @@
 const puppeteer = require("puppeteer");
+const chromium = require("chromium");
 
 const handlePuppeteer = async () => {
   const browser = await puppeteer.launch({
     headless: false,
-    executablePath: undefined,
+    executablePath: chromium.path,
     ignoreHTTPSErrors: true,
   });
   const page = await browser.newPage();

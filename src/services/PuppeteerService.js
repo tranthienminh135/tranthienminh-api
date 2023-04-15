@@ -3,7 +3,8 @@ const puppeteer = require("puppeteer");
 const handlePuppeteer = async () => {
   const browser = await puppeteer.launch({
     headless: false,
-    executablePath: undefined,
+    executablePath:
+      "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
   });
   const page = await browser.newPage();
   await page.goto("https://www.google.com");

@@ -4,7 +4,7 @@ const handlePuppeteer = async () => {
   const browser = await puppeteer.launch({
     headless: false,
     executablePath: undefined,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    ignoreHTTPSErrors: true,
   });
   const page = await browser.newPage();
   await page.goto("https://www.google.com");

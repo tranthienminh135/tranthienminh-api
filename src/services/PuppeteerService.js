@@ -1,11 +1,19 @@
 const puppeteer = require("puppeteer");
-const chromium = require("chromium");
 
 const handlePuppeteer = async () => {
   const browser = await puppeteer.launch({
     headless: false,
-    executablePath: chromium.path,
     ignoreHTTPSErrors: true,
+    args: [
+      "--disable-gpu",
+      "--disable-dev-shm-usage",
+      "--disable-setuid-sandbox",
+      "--no-first-run",
+      "--no-sandbox",
+      "--no-zygote",
+      "--single-process",
+    ],
+    ignoreDefaultArgs: ["--disable-extensions"],
   });
   const page = await browser.newPage();
   await page.goto("https://www.google.com");
